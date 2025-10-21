@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Oct 9 OSIS notes</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="plugin/highlight/zenburn.min.css" id="highlight-theme"></head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+<section data-markdown  ><textarea data-template>
+# Oct 9 OSIS notes
+
+jaems ryan, ant nosaryev, evan rosenfeld
+fall 2025
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## RISC-V (*risk-five*) crash course
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+## instruction types
+
+
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+## priveledge modes
+
+This is important since some instructions require a hart to be in a specific
+mode before it can be executed. some control and state registers are protected
+and cannot be modified in user mode, for example
+
+There are 3 modes: User, Supervisor, and Machine
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+![hierarchy](media/usr.png)
+
+SEE - supervisor execution environment, "The SEE can be a simple boot loader 
+and BIOS-style IO system in a low-end hardware platform" priveledged manual s1.1
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+From sect 1.2 of the priveleged manual:
+
+> Code run in machine-mode (M-mode) is usually inherently trusted, as it has low-
+> level access to the machine implementation. M-mode can be used to manage secure execution
+> environments on RISC-V...
+
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+> A hart normally runs application code in U-mode until some trap (e.g., a supervisor call or a timer
+> interrupt) forces a switch to a trap handler, which usually runs in a more privileged mode. The hart will
+> then execute the trap handler, which will eventually resume execution at or after the original trapped
+> instruction in U-mode... 
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+> Traps that increase privilege level are termed vertical traps, while traps that
+> remain at the same privilege level are termed horizontal traps. The RISC-V privileged architecture
+> provides flexible routing of traps to different privilege layers.
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+Question: how do we implement this SEE & SBI to enable us to run system calls
+and do things from userspace?
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+¯\\\_(ツ)\_/¯
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+## model kernel
+
+[https://github.com/mit-pdos/xv6-riscv](https://github.com/mit-pdos/xv6-riscv)
+
+Used by other univertities to demonstrate OS design
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+## online emulator
+
+well documented and runs in a browser
+
+[https://github.com/d0iasm/rvemu](https://github.com/d0iasm/rvemu)
+
+</textarea></section>
+</section>
+<section>
+<section data-markdown  ><textarea data-template>
+# roadmap
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+## our focus?
+
+We arent looking at any accelerator or coprocessor features. we are concerned
+with running code directly on a risc v core, and potentially utilizing one or
+more hart (thread). we may use accelerators or coprocessors for some things (I/O
+applications)
+
+</textarea></section>
+</section>
+<section data-markdown ><textarea data-template>
+# next 2 weeks?
+
+1. Read the [supervisor binary interface](https://github.com/riscv-non-isa/riscv-sbi-doc/releases/tag/v3.0)
+
+2. Read Chapter 3 in RISC V ISA, Volume II
+
+3. Make a repo github or git.ee.cooper.edu
+
+4. ON an emulator (QEMU), then on the board, practice getting past the
+   bootloader and debugging (eg, set a value in a register, and using a debug
+   tool read the register value) 
+
+</textarea></section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+Reveal.initialize({
+controls : false,
+markdown : {smartypants: true},
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>
