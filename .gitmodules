@@ -1,0 +1,9 @@
+[submodule "OBLFR"]
+	path = OBLFR
+	url = https://github.com/openbouffalo/OBLFR.git
+[submodule "bl_mcu_sdk"]
+	path = bl_mcu_sdk
+	url = https://github.com/bouffalolab/bl_mcu_sdk.git
+[submodule "toolchain_gcc_t-head_linux"]
+	path = toolchain_gcc_t-head_linux
+	url = https://gitee.com/bouffalolab/toolchain_gcc_t-head_linux.git
