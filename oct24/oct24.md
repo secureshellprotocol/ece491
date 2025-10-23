@@ -8,7 +8,7 @@ fall 2025
 
 [comment]: # (|||)
 
-# Supervisor Binary Interface
+## Supervisor Binary Interface
 
 Ox64 SDK includes [OpenSBI](https://github.com/riscv-software-src/opensbi) project.
 
@@ -17,13 +17,13 @@ set timers)
 
 [comment]: # (|||)
 
-# How do we actually boot? 
+## How do we actually boot? 
 
 We wanted to -- *slight* detour into arm
 
 [comment]: # (|||)
 
-# Bare metal programming guide
+### Bare metal programming guide
 
 Thanks to Fred Kim for showing us this
 
