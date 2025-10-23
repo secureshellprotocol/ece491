@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Oct 24 OSIS notes</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="plugin/highlight/zenburn.min.css" id="highlight-theme"></head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+<section data-markdown  ><textarea data-template>
+# Oct 24 OSIS notes
+
+james ryan, ant nosaryev, evan rosenfeld
+
+fall 2025
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+# Supervisor Binary Interface
+
+Ox64 SDK includes [OpenSBI](https://github.com/riscv-software-src/opensbi) project.
+
+This gives us an interface to do common tasks (print debug characters, reboot,
+set timers)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+# How do we actually boot? 
+
+We wanted to -- *slight* detour into arm
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+# Bare metal programming guide
+
+Thanks to Fred Kim for showing us this
+
+[Bare Metal Programming Guide](https://github.com/cpq/bare-metal-programming-guide/tree/main)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+`This guide is written for developers who wish to start programming microcontrollers using a GCC compiler and a datasheet, without using any framework`
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+[Example "kernel"](https://github.com/cpq/bare-metal-programming-guide/tree/main/steps/step-0-minimal)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## The boot process
+
+Conceptually, the SBI is the first "program" to run when we start our board. It
+initializes the hardware, and then moves the program counter to a specified
+location, handing control to the next process.
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+We need to use a linker script to lay out the rest of our operating system in
+memory. This includes defining where the entry point goes, and what regions of
+memory we have access to.
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+[Here's the entry linker script for our board](https://github.com/openbouffalo/OBLFR/blob/92bde04ef7487e4b4d333ae5a54b018a085fc0aa/bsp/common/bl808/bl808_flash_d0.ld)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+# Qemu demo?
+
+</textarea></section>
+</section>
+<section data-markdown ><textarea data-template>
+
+## Todo
+
+make documentation for all of this, including setting up the dev tools, and
+setting up a board
+</textarea></section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+Reveal.initialize({
+controls : false,
+markdown : {smartypants: true},
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>

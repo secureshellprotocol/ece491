@@ -17,7 +17,7 @@ set timers)
 
 [comment]: # (|||)
 
-# Dilemma: DO we do everything ourselves?
+# How do we actually boot? 
 
 We wanted to -- *slight* detour into arm
 
@@ -39,7 +39,29 @@ Thanks to Fred Kim for showing us this
 
 [comment]: # (|||)
 
+## The boot process
+
+Conceptually, the SBI is the first "program" to run when we start our board. It
+initializes the hardware, and then moves the program counter to a specified
+location, handing control to the next process.
+
+[comment]: # (|||)
+
+We need to use a linker script to lay out the rest of our operating system in
+memory. This includes defining where the entry point goes, and what regions of
+memory we have access to.
+
+[comment]: # (|||)
+
 [Here's the entry linker script for our board](https://github.com/openbouffalo/OBLFR/blob/92bde04ef7487e4b4d333ae5a54b018a085fc0aa/bsp/common/bl808/bl808_flash_d0.ld)
 
-[]
+[comment]: # (|||)
 
+# Qemu demo?
+
+[comment]: # (|||)
+
+## Todo
+
+make documentation for all of this, including setting up the dev tools, and
+setting up a board
