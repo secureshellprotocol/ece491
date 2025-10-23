@@ -18,7 +18,7 @@ void kernel_main(void) {
     while(1);
 }
 
-__attribute__((section(".text.boot")))
+__attribute__((section(".text.kernel_entry")))
 __attribute__((naked))
 void kernel_entry(void) {
     __asm__ __volatile__(
