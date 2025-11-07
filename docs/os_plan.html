@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>RISC V operating systems, Fall 2025</title>
+    </head>
+    <body>
+        <h1>RISC-V OS Plan</h1>
+        <a href=../index.html>home</a>
+	    <hr>
+        <h2>Overview:</h2>
+        Our plan is to build a minimal general purpose OS.
+
+        <hr>
+        <h2>Kernel Mode:</h2>
+        The main 'mode' of our OS will be a simple TUI shell which will let the user navigate the file system, select a program, and execute a program.
+        The idea is to always display the contents of the cwd (with '..' included) and by default 'select' the first file in the dir.
+        Then we accept left/right inputs so the user can navigate to the file they want to execute and then we accept the execute input which will execute the file if it is executable, traverse into it if it's a directory, or cat the contents if its text.
+        <hr>
+        <h2>Scheduling Tasks:</h2>
+        We plan to only allow one program to be queued at a time.
+        This way, the program will by default be in kernel mode, but when any program is executed it will store the kernels current context and switch and begin executing the program.
+        It will never switch back into kernel mode until the current program completes, and when it finally does complete, it will perform a context switch back into the kernel.
+        <hr>
+        <h2>Handling I/O:</h2>
+        Because the main goal of this OS is to be a low power tool for wireless transmission and remote tasks we plan to use low power transmiters and receivers to accept and deliver I/O.
+        The only inputs we will need to handle for now are left, right, execute, and terminate, likely handled through hardware interrupts triggered by a remote device (recieved by our reciever).
+        We also plan to handle outputs over serial or i2c which will be sent to (by our transmitter) and decoded by a remote device like a raspi.
+        <hr>
+        <h2>File System and Storage:</h2>
+        We want to be able to store and organise an arbitrary amount and size of files (since programs may have to write and read from files like a csv of sensor data) and so we plan to build a simple tree structured file system.
+        All our files will be stored on a microSD card that we will write to as a block device via an external python script.
+        The files will all also be loaded onto the microSD card before boot, and we won't have anything like vim, touch, or arbitrary text input to allow the user to create files once the OS is booted and running.
+        <hr>
+        <h2>Memory Handling:</h2>
+        We plan on splitting our flash memory into two segments, kernel and program.
+        These will be statically sized (with program memory being significantly larger than kernel memory) and executed programs will only have stack space so we don't have to implement complex algorythms like malloc and instead can just handle the stack.
+        Since we have (non-volatile) flash memory we have to make sure our bootloader can properly 'reset' our system on startup.
+    </body>
+</html>
