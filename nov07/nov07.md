@@ -47,6 +47,8 @@ Real time operating systems have a scheduler which requires some kind of
 
 ## Papers: Plan 9?
 
+[Plan 9 Paper](https://css.csail.mit.edu/6.824/2014/papers/plan9.pdf)
+
 Created by Bell Labs, resources are network accessible and distributed. Its an
 interesting objective for an OS, especially embedded ones, to create a
 centralized network of microcontrollers?
