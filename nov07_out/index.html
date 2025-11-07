@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Nov 7 OSIS notes</title>
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<!-- Theme used for syntax highlighted code -->
+<link rel="stylesheet" href="plugin/highlight/zenburn.min.css" id="highlight-theme"></head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+<section>
+<section data-markdown  ><textarea data-template>
+# Nov 7 OSIS notes
+
+james ryan, ant nosaryev, evan rosenfeld
+
+fall 2025
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## In progress:
+* Setting up remote debug on Ox64
+* Thinking about roadmap
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## Remote debug?
+
+We set up OpenOCD to use a JTAG programmer on the board -- this lets us see
+things like live register state while the board is active
+
+We did not finish the setup, there is no clear documentation.
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## Side tangent
+
+Indexing all of the resources is becoming unwieldly
+
+[Zotero](https://www.zotero.org/support/adding_items_to_zotero)
+
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## Papers: Real Time os?
+
+[Real time in Plan 9](https://2e.iwp9.org/Real-time.pdf)
+
+Real time operating systems have a scheduler which requires some kind of
+*deadline* If a process can run within that deadline, it gets scheduled.
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+![fig1](media/fig1.png)
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+## Papers: Plan 9?
+
+Created by Bell Labs, resources are network accessible and distributed. Its an
+interesting objective for an OS, especially embedded ones, to create a
+centralized network of microcontrollers?
+
+Inspired by comments about LoRa, but feasibility...?
+
+</textarea></section>
+<section data-markdown  ><textarea data-template>
+
+![fig1-again](media/fig1-again.png)
+
+</textarea></section>
+</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+Reveal.initialize({
+controls : false,
+markdown : {smartypants: true},
+				hash: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+			});
+		</script>
+	</body>
+</html>
