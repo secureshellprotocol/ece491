@@ -1,0 +1,14 @@
+target remote :1234
+set architecture riscv:rv32
+break breakpoint1 
+break breakpoint2
+break breakpoint3
+
+# This multi-line definition works perfectly inside a GDB script file
+define hook-stop
+  echo \n================ CPU REGISTERS ================\n
+  info registers
+  echo =============================================\n
+end
+
+continue

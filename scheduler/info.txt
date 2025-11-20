@@ -1,3 +1,4 @@
+install qemu-system-misc gcc-riscv64-unknown-elf gdb-multiarch build-essential binutils-riscv64-unknown-elf
 in one terminal run: ./build.sh && ./run_qemu.sh
 in another ruin: ./run_gdb.sh
 
