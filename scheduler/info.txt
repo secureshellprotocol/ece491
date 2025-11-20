@@ -1,0 +1,8 @@
+in one terminal run: ./build.sh && ./run_qemu.sh
+in another ruin: ./run_gdb.sh
+
+then in the gdb instance run:
+continue
+continue
+
+ctrl+a, then x to quit qemu
